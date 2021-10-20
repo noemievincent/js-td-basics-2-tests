@@ -8,6 +8,23 @@ Ecrire un programme JS qui affiche le montant de la réduction accordée
 sur base de la situation de l’acheteur et du montant de ses achats.
 */
 
+const iPrice = 126;
+let iNbKids = 2;
+let iDiscountA = (iPrice/100)*10;
+let iDiscountB = (iPrice/100)*5;
+console.log(iPrice);
+
+
+if ((iPrice >= 50 && iNbKids >= 3) || iPrice > 125){
+    console.log(`La facture est de ${iPrice - iDiscountA}€ (remise de ${iDiscountA}€).`);
+} else if ((iPrice <= 50 && iNbKids >= 3) || iPrice <= 125){
+    console.log(`La facture est de ${iPrice - iDiscountB}€ (remise de ${iDiscountB}€).`);
+} else if ((iPrice <= 50 && iNbKids < 3) || iPrice <= 125){
+    console.log(`La facture est de ${iPrice - iDiscountB}€ (remise de ${iDiscountB}€).`);
+} else {
+    console.log(`La facture est de ${iPrice - iDiscountB}€ (remise de ${iDiscountB}€).`);
+}
+
 /* Valeurs de test :
 - achat de 50 euros et moins de 3 enfants : 5% = 2.5€
 - achat de 50 euros et 3 enfants : 5% = 2.5€

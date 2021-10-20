@@ -3,12 +3,36 @@ TESTS - PRÉPA 5 : Bissextile
 Ecrire un programme qui teste si une année entrée par l’utilisateur est une année bissextile.
 */
 
+let iYear = parseInt(prompt("En quelle année sommes-nous ?"));
+let bIsBissextile;
+
+if (iYear % 4 === 0){
+	if (iYear % 100 === 0){
+		if (iYear % 400 === 0){
+			bIsBissextile = true; //divisible par 100 et 400
+		} else {
+			bIsBissextile = false; // divisible par 100 mais pas 400
+		}
+	} else {
+		bIsBissextile = true; //divisible par 4 mais pas par 100
+	}
+} else {
+	bIsBissextile = false;
+}
+
+if (bIsBissextile){
+	console.log(`${iYear} est une année bissextile.`);
+} else {
+	console.log(`${iYear} est une année non bissextile.`);
+}
+
+
 /*
 RAPPEL (en français) :
 « Une année est bissextile si elle est multiple de 4, sauf pour les siècles non multiples de 400 »
-OU 
+OU
 « Une année est bissextile si elle est divisible par 4 mais pas par 100 ou bien si elle est divisible par 400 »
-AUTREMENT DIT : 
+AUTREMENT DIT :
 	1. Les années divisibles par 4 sont bissextiles, pas les autres
 	2. Exception : les années divisibles par 100 ne sont pas bissextiles
 	3. Exception à l'exception : les années divisibles par 400 sont bissextiles
@@ -24,7 +48,7 @@ Etapes :
 	* ajoutez en dernier le test pour voir si elle est divisible par 400
   On a donc :
 												divisible par 4 ?
-												
+
 											OUI						NON
 																	 |
 									divisible par 100 ?				 |
@@ -36,10 +60,10 @@ Etapes :
 					OUI						NON			 |			 |
 					 |						 |			 |			 |
 					 B						 NB			 B			 NB
-	
+
 3. en fonction du résulat, affichez le message
 	"… est une année bissextile" ou
-	"… est une année non bissextile"	
+	"… est une année non bissextile"
 4. Vérifiez votre programme pour tous les cas de figure :
 	* une année non divisible par 4 (par ex. 2006)
 	* une année divisible par 4 mais pas par 100 (par ex. 2004)
@@ -61,7 +85,7 @@ if (year % 4 === 0) {
 		isBessextile = true; // divisible par 4 mais pas par 100
 	}
 } else {
-  isBessextile = false;
+	isBessextile = false;
 }
 if(isBessextile){
 	console.log(year + " est une année bissextile");
